@@ -1,0 +1,6 @@
+.powdcotu_shortcode_wrapper .tutor-btn {
+    width: var(--btn-width, 300px) !important;
+    max-width: 100%;
+    color: var(--btn-color, #fff) !important;
+    margin: auto;
+}
