@@ -1,0 +1,9 @@
+## [1.0.0] – 2026-09-04
+
+### 🚀 New Features
+- Initial release
+- Disables Tutor LMS's default course page template so the course page can be rebuilt in Divi Builder
+- Adds `[powdcotu_course_infobar]` shortcode for Tutor's course entry box (price, enrollment status, progress bar, course meta)
+- Adds `[powdcotu_course_action_button]` shortcode for the standalone enroll/purchase button
+- Adds `[powdcotu_course_content]` shortcode for the course curriculum accordion (topics, lessons, quizzes)
+- Adds `btn_color` and `btn_width` attributes to the infobar and action button shortcodes for quick recoloring/resizing without custom CSS
