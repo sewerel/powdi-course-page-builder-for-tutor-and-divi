@@ -1,0 +1,159 @@
+{
+    "name": "divi-tutor/buttons",
+    "title": "Divi Tutor Course Button",
+    "titles": "Divi Tutor Course Buttons",
+    "category": "module",
+    "moduleIcon": "divi-tutor/buttons",
+    "moduleClassName": "divi_tutor_course_button",
+    "moduleOrderClassName": "divi_tutor_course_button",
+    "attributes": {
+        "module": {
+            "type": "object",
+            "selector": "{{selector}}",
+            "settings": {
+                "meta": {
+                    "adminLabel": {}
+                },
+                "advanced": {
+                    "preview": {
+                        "groupType": "group-item",
+                        "label": "Content Preview",
+                        "description": "Select the course state to preview in the Visual Builder",
+                        "item": {
+                            "groupSlug": "contentPreview",
+                            "priority": 10,
+                            "attrName": "module.advanced.preview",
+                            "render": true,
+                            "defaultAttr": {
+                                "desktop": {
+                                    "value": "auto"
+                                }
+                            },
+                            "component": {
+                                "type": "field",
+                                "name": "divi/select",
+                                "props": {
+                                    "options": {
+                                        "auto": {
+                                            "label": "Auto"
+                                        },
+                                        "enrolled": {
+                                            "label": "Enrolled not started"
+                                        },
+                                        "started": {
+                                            "label": "Started"
+                                        },
+                                        "finished": {
+                                            "label": "Finished"
+                                        },
+                                        "not_enrolled": {
+                                            "label": "Not Enrolled"
+                                        },
+                                        "add_to_cart": {
+                                            "label": "Add to cart Woocommerce"
+                                        },
+                                        "view_cart": {
+                                            "label": "View Cart Woocommerce"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "features": {
+                            "responsive": false,
+                            "hover": false
+                        }
+                    }
+                },
+                "decoration": {
+                    "sizing": {},
+                    "spacing": {},
+                    "transform": {},
+                    "attributes": {},
+                    "animation": {},
+                    "overflow": {},
+                    "disabledOn": {},
+                    "transition": {},
+                    "position": {},
+                    "zIndex": {},
+                    "scroll": {}
+                }
+            }
+        },
+        "buttons": {
+            "type": "object",
+            "selector": "{{selector}} .divi-tutor-button",
+            "styleProps": {
+                "button": {
+                    "propertySelector": {
+                        "desktop": {
+                            "value": {
+                                "text-align": "{{selector}}"
+                            }
+                        }
+                    }
+                }
+            },
+            "settings": {
+                "decoration": {
+                    "button": {
+                        "component": {
+                            "type": "group",
+                            "name": "divi/button",
+                            "props": {
+                                "grouped": true,
+                                "fieldLabel": "Button",
+                                "groupLabel": "Button",
+                                "fields": {
+                                    "fontGroup": {
+                                        "component": {
+                                            "props": {
+                                                "fields": {
+                                                    "textAlign": {
+                                                        "render": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "borderGroup": {
+                                        "component": {
+                                            "props": {
+                                                "fields": {
+                                                    "styles": {
+                                                        "render": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "buttonIconGroup": {
+                                        "render": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "settings": {
+        "content": "auto",
+        "design": "auto",
+        "advanced": "auto",
+        "groups": {
+            "contentPreview": {
+                "panel": "content",
+                "priority": 10,
+                "groupName": "contentPreview",
+                "component": {
+                    "name": "divi/composite",
+                    "props": {
+                        "groupLabel": "Content Preview"
+                    }
+                }
+            }
+        }
+    }
+}

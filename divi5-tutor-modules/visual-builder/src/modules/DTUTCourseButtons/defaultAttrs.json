@@ -1,0 +1,63 @@
+{
+    "buttons": {
+        "decoration": {
+            "button": {
+                "desktop": {
+                    "value": {
+                        "enable": "on"
+                    }
+                }
+            },
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "size": "18px",
+                            "color": "#ffffff"
+                        }
+                    }
+                }
+            },
+            "border": {
+                "desktop": {
+                    "value": {
+                        "radius": {
+                            "topLeft": "4px",
+                            "topRight": "4px",
+                            "bottomLeft": "4px",
+                            "bottomRight": "4px",
+                            "sync": "on"
+                        },
+                        "styles": {
+                            "all": {
+                                "color": "#20ad96"
+                            }
+                        }
+                    }
+                }
+            },
+            "background": {
+                "desktop": {
+                    "value": {
+                        "gradient": {
+                            "enabled": "off"
+                        },
+                        "color": "#20ad96"
+                    }
+                }
+            },
+            "spacing": {
+                "desktop": {
+                    "value": {
+                        "padding": {
+                            "top": ".3em",
+                            "bottom": ".3em",
+                            "left": "1em",
+                            "right": "1em"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

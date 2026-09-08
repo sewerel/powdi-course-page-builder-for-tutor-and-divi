@@ -1,0 +1,24 @@
+{
+    "bar": {
+        "decoration": {
+            "background": {
+                "desktop": {
+                    "value": {
+                        "color": "#f1f1f1"
+                    }
+                }
+            }
+        }
+    },
+    "line": {
+        "decoration": {
+            "background": {
+                "desktop": {
+                    "value": {
+                        "color": "var(--tutor-color-primary, #20ad96)"
+                    }
+                }
+            }
+        }
+    }
+}

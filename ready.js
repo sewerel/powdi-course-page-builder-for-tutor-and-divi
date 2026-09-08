@@ -84,7 +84,7 @@ archive.glob(
             //modules' module.json/defaultAttrs.json is read at runtime and must ship
             '*.json',
             //ignore npm/webpack dev tooling nested under subsystems like
-            //divi5-learndash-modules/ (package.json, package-lock.json, webpack.config.js)
+            //divi5-tutor-modules/ (package.json, package-lock.json, webpack.config.js)
             '**/package.json',
             '**/package-lock.json',
             '**/webpack.config.js',

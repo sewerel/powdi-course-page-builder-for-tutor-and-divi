@@ -1,0 +1,39 @@
+{
+    "price": {
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "color": "#333333",
+                            "size": "16px",
+                            "textAlign": "center"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "freeTag": {
+        "decoration": {
+            "font": {
+                "font": {
+                    "desktop": {
+                        "value": {
+                            "color": "#333333",
+                            "size": "16px",
+                            "textAlign": "center"
+                        }
+                    }
+                }
+            }
+        },
+        "advanced": {
+            "text": {
+                "desktop": {
+                    "value": "Free"
+                }
+            }
+        }
+    }
+}

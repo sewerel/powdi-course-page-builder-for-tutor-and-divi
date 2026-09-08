@@ -3,7 +3,7 @@ Contributors: sewerel
 Tags: tutor lms, divi, course builder, page builder
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ By default, Tutor LMS controls your course page. It renders its own template —
 
 **Course Page Builder for Tutor and Divi** hands that control back to you.
 
-This free plugin switches off Tutor LMS's default course page template and lets you rebuild the page entirely in the Divi Builder — then place the Tutor course elements back exactly where you want them, using simple shortcodes. It works with both **Divi 4** and **Divi 5**.
+This free plugin switches off Tutor LMS's default course page template and lets you rebuild the page entirely in the Divi Builder — then place the Tutor course elements back exactly where you want them. On **Divi 5**, drag in the native Course Buttons, Course Content, Course Price, and Course Status modules; on **Divi 4**, or anywhere shortcodes are accepted, use the included shortcodes instead.
 
 Perfect for course creators, designers, and developers who want their Tutor LMS course pages to feel like a real part of their site — not a default template dropped in the middle of it.
 
@@ -27,7 +27,7 @@ Perfect for course creators, designers, and developers who want their Tutor LMS 
 It's designed to be simple — there's nothing to configure:
 
 * **Just activate the plugin** — as soon as it's active, Tutor LMS's default course page template is switched off automatically. You're left with a clean, blank course page, fully under your control in Divi.
-* **Add the shortcodes** where you want the Tutor course elements to appear in your Divi layout.
+* **Add the shortcodes, or the native Divi 5 modules,** where you want the Tutor course elements to appear in your Divi layout.
 * **To restore the default Tutor LMS layout**, simply deactivate the plugin. The change is completely reversible — deactivating brings back Tutor's standard course page exactly as before.
 
 = What This Free Plugin Does =
@@ -35,6 +35,17 @@ It's designed to be simple — there's nothing to configure:
 * **Disables Tutor LMS's default course page template** — the sidebar entry box, tabs, and page wrapper Tutor normally builds for you.
 * **Provides shortcodes** to place Tutor's course price/progress/enroll card, or just the action button on its own, anywhere inside your Divi design.
 * **Leaves Tutor's lesson player and dashboard pages untouched** — only the main course page template is handed back to Divi.
+
+= Native Divi 5 Modules =
+
+If you're on Divi 5, these appear directly in the Visual Builder's module library once Tutor LMS and Divi 5 are both active — no shortcode needed:
+
+* **Divi Tutor Course Buttons** — the enroll/purchase/continue action button.
+* **Divi Tutor Course Content** — the lessons, topics, and quizzes curriculum accordion.
+* **Divi Tutor Course Price** — the course price (or a "Free" label).
+* **Divi Tutor Course Status** — the enrolled user's progress bar.
+
+On Divi 4, use the shortcodes below instead.
 
 = Included Shortcodes =
 
@@ -55,7 +66,7 @@ For example: `[powdcotu_course_action_button btn_color="#e91e63" btn_width="100%
 
 = Actively Developed =
 
-This is an early version, and the plugin is actively developed. Your feedback is welcome and helps shape what comes next.
+This is an early version, and the plugin is actively developed. Native Divi 5 modules now ship for Course Buttons, Course Content, Course Price, and Course Status. Your feedback is welcome and helps shape what comes next.
 
 == Installation ==
 
@@ -67,7 +78,15 @@ This is an early version, and the plugin is actively developed. Your feedback is
 
 = Does this work with Divi 5? =
 
-Yes. Course Page Builder for Tutor and Divi works with both Divi 4 and Divi 5.
+Yes. Course Page Builder for Tutor and Divi works with both Divi 4 and Divi 5. On Divi 5 you also get native Course Buttons, Course Content, Course Price, and Course Status modules in the Visual Builder.
+
+= Do I need to use the shortcodes if I'm on Divi 5? =
+
+No. The shortcodes still work everywhere (and are the only option on Divi 4), but on Divi 5 you can drag in the native modules directly instead — no shortcode needed.
+
+= I have the theme divi-tutor-theme and this plugin both active — will the modules conflict? =
+
+No. This plugin detects when the divi-tutor-theme is already providing these modules and automatically steps aside, so nothing is registered twice.
 
 = What happens as soon as I activate the plugin? =
 
@@ -95,10 +114,18 @@ If you have any questions about this plugin, please check the FAQ section or pos
 
 == Changelog ==
 
+= 1.1.0 =
+
+* 4 new native Divi 5 modules: Course Buttons, Course Content, Course Price, Course Status
+* Plugin bootstrap converted to a class-based structure
+
 = 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds 4 native Divi 5 modules (Course Buttons, Course Content, Course Price, Course Status). Existing Divi 4 shortcodes are unchanged.
 
 = 1.0.0 =
 Initial release.
