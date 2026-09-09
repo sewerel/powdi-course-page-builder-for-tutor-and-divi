@@ -122,7 +122,7 @@ if (!class_exists('Powdcotu_Plugin')) {
 
         /**
          * Registers this plugin's native Divi 5 modules (Course Buttons, Course Content,
-         * Course Price, Course Status) into Divi's own module dependency tree, unless the
+         * Course Price, Course Progress) into Divi's own module dependency tree, unless the
          * divi-tutor-theme is active and already provides them.
          *
          * Hooked on `divi_module_library_modules_dependency_tree` — Divi core's own

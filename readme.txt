@@ -18,7 +18,7 @@ By default, Tutor LMS controls your course page. It renders its own template —
 
 **Course Page Builder for Tutor and Divi** hands that control back to you.
 
-This free plugin switches off Tutor LMS's default course page template and lets you rebuild the page entirely in the Divi Builder — then place the Tutor course elements back exactly where you want them. On **Divi 5**, drag in the native Course Buttons, Course Content, Course Price, and Course Status modules; on **Divi 4**, or anywhere shortcodes are accepted, use the included shortcodes instead.
+This free plugin switches off Tutor LMS's default course page template and lets you rebuild the page entirely in the Divi Builder — then place the Tutor course elements back exactly where you want them. On **Divi 5**, drag in the native Course Buttons, Course Content, Course Price, and Course Progress modules; on **Divi 4**, or anywhere shortcodes are accepted, use the included shortcodes instead.
 
 Perfect for course creators, designers, and developers who want their Tutor LMS course pages to feel like a real part of their site — not a default template dropped in the middle of it.
 
@@ -43,7 +43,7 @@ If you're on Divi 5, these appear directly in the Visual Builder's module librar
 * **Divi Tutor Course Buttons** — the enroll/purchase/continue action button.
 * **Divi Tutor Course Content** — the lessons, topics, and quizzes curriculum accordion.
 * **Divi Tutor Course Price** — the course price (or a "Free" label).
-* **Divi Tutor Course Status** — the enrolled user's progress bar.
+* **Divi Tutor Course Progress** — the enrolled user's progress bar.
 
 On Divi 4, use the shortcodes below instead.
 
@@ -66,7 +66,7 @@ For example: `[powdcotu_course_action_button btn_color="#e91e63" btn_width="100%
 
 = Actively Developed =
 
-This is an early version, and the plugin is actively developed. Native Divi 5 modules now ship for Course Buttons, Course Content, Course Price, and Course Status. Your feedback is welcome and helps shape what comes next.
+This is an early version, and the plugin is actively developed. Native Divi 5 modules now ship for Course Buttons, Course Content, Course Price, and Course Progress. Your feedback is welcome and helps shape what comes next.
 
 == Installation ==
 
@@ -78,7 +78,7 @@ This is an early version, and the plugin is actively developed. Native Divi 5 mo
 
 = Does this work with Divi 5? =
 
-Yes. Course Page Builder for Tutor and Divi works with both Divi 4 and Divi 5. On Divi 5 you also get native Course Buttons, Course Content, Course Price, and Course Status modules in the Visual Builder.
+Yes. Course Page Builder for Tutor and Divi works with both Divi 4 and Divi 5. On Divi 5 you also get native Course Buttons, Course Content, Course Price, and Course Progress modules in the Visual Builder.
 
 = Do I need to use the shortcodes if I'm on Divi 5? =
 
@@ -116,7 +116,7 @@ If you have any questions about this plugin, please check the FAQ section or pos
 
 = 1.1.0 =
 
-* 4 new native Divi 5 modules: Course Buttons, Course Content, Course Price, Course Status
+* 4 new native Divi 5 modules: Course Buttons, Course Content, Course Price, Course Progress
 * Plugin bootstrap converted to a class-based structure
 
 = 1.0.0 =
@@ -125,7 +125,7 @@ If you have any questions about this plugin, please check the FAQ section or pos
 == Upgrade Notice ==
 
 = 1.1.0 =
-Adds 4 native Divi 5 modules (Course Buttons, Course Content, Course Price, Course Status). Existing Divi 4 shortcodes are unchanged.
+Adds 4 native Divi 5 modules (Course Buttons, Course Content, Course Price, Course Progress). Existing Divi 4 shortcodes are unchanged.
 
 = 1.0.0 =
 Initial release.

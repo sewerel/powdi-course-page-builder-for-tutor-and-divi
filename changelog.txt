@@ -1,7 +1,7 @@
 ## [1.1.0] – 2026-09-08
 
 ### 🚀 New Features
-- 4 new native Divi 5 modules: Course Buttons, Course Content, Course Price, Course Status
+- 4 new native Divi 5 modules: Course Buttons, Course Content, Course Price, Course Progress
 - Plugin bootstrap converted to a class-based structure (`Powdcotu_Plugin`)
 
 ## [1.0.0] – 2026-09-04
