@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Tutor add to cart for WC product that will be visible on the course details page
+ * Template: WooCommerce add-to-cart/purchase button, included by
+ * DTUTCourseButtons::get_content() when the course is sold via WooCommerce.
  *
  * @package Tutor\Templates
  * @subpackage Single\Course
@@ -9,6 +10,12 @@
  * @link https://themeum.com
  * @since 1.4.3
  */
+
+if (! defined('ABSPATH')) {
+    exit;
+}
+
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- this template is a near-verbatim copy of Tutor core's own templates/single/course/add-to-cart-woocommerce.php, kept unprefixed on purpose so it stays easy to diff against future Tutor core updates.
 
 $product_id = tutor_utils()->get_course_product_id();
 $product    = wc_get_product($product_id);
@@ -25,7 +32,7 @@ if ($product) {
     if (tutor_utils()->is_course_added_to_cart($product_id, true)) {
 ?>
         <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="divi-tutor-button divi-tutor-course-button tutor-woocommerce-view-cart">
-            <?php esc_html_e('View Cart', 'tutor'); ?>
+            <?php esc_html_e('View Cart', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
         </a>
     <?php
     } else {
@@ -41,7 +48,7 @@ if ($product) {
 } else {
     ?>
     <p class="tutor-alert-warning">
-        <?php esc_html_e('Please make sure that your product exists and valid for this course', 'tutor'); ?>
+        <?php esc_html_e('Please make sure that your product exists and valid for this course', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
     </p>
 <?php
 }

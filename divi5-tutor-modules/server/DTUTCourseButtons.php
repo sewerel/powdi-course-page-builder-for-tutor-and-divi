@@ -23,6 +23,8 @@ class DTUTCourseButtons implements DependencyInterface {
     /**
      * Register module.
      * `DependencyInterface` interface ensures class method name `load()` is executed for initialization.
+     *
+     * @return void
      */
     public function load() {
         // Register module.
@@ -31,6 +33,8 @@ class DTUTCourseButtons implements DependencyInterface {
 
     /**
      * Register module.
+     *
+     * @return void
      */
     public static function register_module() {
         // Path to module metadata that is shared between Frontend and Visual Builder.
@@ -43,6 +47,11 @@ class DTUTCourseButtons implements DependencyInterface {
             ]
         );
     }
+
+    /**
+     * @param array $props
+     * @return string
+     */
     public static function declarationFunctionButtonAlignment($props) {
         $attrValue = $props['attrValue']['alignment'] ?? '';
         if ($attrValue) {
@@ -50,8 +59,12 @@ class DTUTCourseButtons implements DependencyInterface {
         }
         return '';
     }
+
     /**
      * Render module style.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_styles(array $args): void {
         $attrs       = $args['attrs'] ?? [];
@@ -78,19 +91,7 @@ class DTUTCourseButtons implements DependencyInterface {
                         ]
                     ),
                     $elements->style([
-                        'attrName'   => 'buttons',
-                        'styleProps' => [
-                            'advancedStyles' => [
-                                [
-                                    "componentName" => "divi/common",
-                                    "props" => [
-                                        "selector" => "{$orderClass}",
-                                        "attr" => $attrs['buttons']['decoration']['button'] ?? null,
-                                        "declarationFunction" => [self::class, 'declarationFunctionButtonAlignment']
-                                    ]
-                                ]
-                            ]
-                        ]
+                        'attrName'   => 'buttons'
                     ])
 
 
@@ -101,6 +102,9 @@ class DTUTCourseButtons implements DependencyInterface {
 
     /**
      * Render module script data.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_script_data($args) {
         $elements = $args['elements'];
@@ -115,6 +119,9 @@ class DTUTCourseButtons implements DependencyInterface {
 
     /**
      * Render module classnames.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_classnames($args) {
         $classnames_instance = $args['classnamesInstance'];
@@ -129,32 +136,35 @@ class DTUTCourseButtons implements DependencyInterface {
             )
         );
     }
+    /**
+     * @return string
+     */
     public static function get_html_content() {
         // Nonce is verified in Ajax::handle_ajax()
         // phpcs:disable WordPress.Security.NonceVerification.Missing
-        $preview = isset($_POST['preview']) ? sanitize_text_field($_POST['preview']) : 'auto';
+        $preview = isset($_POST['preview']) ? sanitize_text_field(wp_unslash($_POST['preview'])) : 'auto';
         $course_id = isset($_POST['course_id']) ? absint($_POST['course_id']) : 0;
         // phpcs:enable WordPress.Security.NonceVerification.Missing
         if ('auto' !== $preview) {
 
             switch ($preview) {
                 case 'enrolled':
-                    return '<a href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button">' . esc_html('Start Learning', 'tutor') . '</a>';
+                    return '<a href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button">' . esc_html__('Start Learning', 'powdi-course-page-builder-for-tutor-and-divi') . '</a>';
                     break;
                 case 'started':
-                    return '<a href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button">' . esc_html('Continue Learning', 'tutor') . '</a>';
+                    return '<a href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button">' . esc_html__('Continue Learning', 'powdi-course-page-builder-for-tutor-and-divi') . '</a>';
                     break;
                 case 'finished':
-                    return '<button href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button tutor-course-retake-button">' . esc_html('Retake This Course', 'tutor') . '</button>';
+                    return '<button href="#" class= "divi-tutor-button divi-tutor-course-button tutor-btn-primary start-continue-retake-button tutor-course-retake-button">' . esc_html__('Retake This Course', 'powdi-course-page-builder-for-tutor-and-divi') . '</button>';
                     break;
                 case 'not_enrolled':
-                    return '<div><form readonly class="tutor-enrol-course-form"><button type="submit" class="tutor-enroll-course-button divi-tutor-button divi-tutor-course-button">' . esc_html('Enroll now', 'tutor') . '</button></form></div>';
+                    return '<div><form readonly class="tutor-enrol-course-form"><button type="submit" class="tutor-enroll-course-button divi-tutor-button divi-tutor-course-button">' . esc_html__('Enroll now', 'powdi-course-page-builder-for-tutor-and-divi') . '</button></form></div>';
                     break;
                 case 'add_to_cart':
                     return '<form><button class="divi-tutor-button divi-tutor-course-button tutor-add-to-cart-button" type="submit">Add to cart</button></form>';
                     break;
                 case 'view_cart':
-                    return '<a href="#" class="divi-tutor-button divi-tutor-course-button tutor-woocommerce-view-cart">' . esc_html('View Cart', 'tutor') . '</a>';
+                    return '<a href="#" class="divi-tutor-button divi-tutor-course-button tutor-woocommerce-view-cart">' . esc_html__('View Cart', 'powdi-course-page-builder-for-tutor-and-divi') . '</a>';
                     break;
             }
         } elseif (!empty($course_id)) {
@@ -162,6 +172,10 @@ class DTUTCourseButtons implements DependencyInterface {
         }
         return '';
     }
+    /**
+     * @param int $course_id
+     * @return string
+     */
     public static function get_content($course_id = 0) {
         if (!$course_id) {
             $course_id = get_the_ID();
@@ -195,6 +209,12 @@ class DTUTCourseButtons implements DependencyInterface {
 
     /**
      * Render module HTML output.
+     *
+     * @param array  $attrs
+     * @param string $content
+     * @param object $block
+     * @param object $elements
+     * @return string
      */
     public static function render_callback($attrs, $content, $block, $elements) {
 

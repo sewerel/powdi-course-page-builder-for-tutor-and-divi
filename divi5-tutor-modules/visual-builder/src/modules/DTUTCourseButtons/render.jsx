@@ -43,10 +43,10 @@ const render = (props) => {
 
 
 
-    const preview = attrs?.module?.advanced?.preview?.desktop?.value ?? '';
+    const preview = attrs?.module?.advanced?.preview?.desktop?.value ?? 'auto';
     const [isLoading, setIsLoading] = useState(false);
     const [html, setHtml] = useState('');
-    //console.log('Button: ', attrs)
+    console.log('Button: ', attrs)
 
     useEffect(() => {
         setIsLoading(true);

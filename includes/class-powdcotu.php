@@ -27,6 +27,9 @@ if (!class_exists('Powdcotu_Plugin')) {
             return self::$instance;
         }
 
+        /**
+         * @return void
+         */
         private function __construct() {
             $this->includes();
             $this->add_hooks();

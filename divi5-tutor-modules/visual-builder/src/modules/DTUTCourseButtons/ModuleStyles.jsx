@@ -33,23 +33,7 @@ const ModuleStyles = (params) => {
                 }
             })}
             {elements.style({
-                attrName: 'buttons',
-                styleProps: {
-                    advancedStyles: [
-                        {
-                            componentName: "divi/common",
-                            props: {
-                                selector: `${orderClass}`,
-                                attr: attrs?.buttons?.decoration?.button,
-                                declarationFunction: ({ attrValue }) => {
-                                    if (attrValue?.alignment) {
-                                        return `text-align:${attrValue.alignment};`
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                }
+                attrName: 'buttons'
             })}
 
         </StyleContainer>

@@ -1,8 +1,22 @@
 <?php
 
 /**
- * Course content accordion
+ * Template: course curriculum accordion (topics/lessons/quizzes).
+ *
+ * Included by DTUTCourseContent::get_content(), which sets the variables
+ * below in scope before including this file.
+ *
+ * @var \WP_Query $topics             Topic posts for the course.
+ * @var int        $index              Running position counter across topics, starts at 0.
+ * @var int        $course_id          Course post ID.
+ * @var bool       $is_enrolled        Whether the current user is enrolled in the course.
+ * @var bool       $is_privileged_user Whether the current user can access course content without enrolling (admin/instructor).
  */
+
+if (! defined('ABSPATH')) {
+    exit;
+}
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- this template's local variables are kept matching Tutor core's own single/course/course-topics.php naming, on purpose, so it stays easy to diff against future Tutor core updates.
 ?>
 
 <?php if ($topics->have_posts()) : ?>
@@ -68,9 +82,9 @@
 
                                                     if ($countdown) {
                                                         if ($zoom_meeting->is_expired) {
-                                                            $lesson_title .= '<span class="tutor-zoom-label">' . __('Expired', 'tutor') . '</span>';
+                                                            $lesson_title .= '<span class="tutor-zoom-label">' . __('Expired', 'powdi-course-page-builder-for-tutor-and-divi') . '</span>';
                                                         } elseif ($zoom_meeting->is_started) {
-                                                            $lesson_title .= '<span class="tutor-zoom-label tutor-zoom-live-label">' . __('Live', 'tutor') . '</span>';
+                                                            $lesson_title .= '<span class="tutor-zoom-label tutor-zoom-live-label">' . __('Live', 'powdi-course-page-builder-for-tutor-and-divi') . '</span>';
                                                         }
                                                         $lesson_title .= $countdown;
                                                     }
@@ -86,7 +100,7 @@
 
                                         <div>
                                             <span class="tutor-course-content-list-item-duration tutor-fs-7 tutor-color-muted">
-                                                <?php echo $play_time ? et_core_esc_previously(tutor_utils()->get_optimized_duration($play_time)) : ''; ?>
+                                                <?php echo $play_time ? esc_html(tutor_utils()->get_optimized_duration($play_time)) : ''; ?>
                                             </span>
                                             <span class="tutor-course-content-list-item-status <?php echo $is_locked ? 'tutor-icon-lock-line' : 'tutor-icon-eye-line'; ?> tutor-color-muted tutor-ml-20" area-hidden="true"></span>
                                         </div>

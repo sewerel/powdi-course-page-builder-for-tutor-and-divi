@@ -1,7 +1,7 @@
 {
     "name": "divi-tutor/status",
-    "title": "Divi Tutor Course Status",
-    "titles": "Divi Tutor Course Statuss",
+    "title": "Divi Tutor Course Progress",
+    "titles": "Divi Tutor Course Progress",
     "category": "module",
     "moduleIcon": "divi-tutor/status",
     "moduleClassName": "divi_tutor_course_status",

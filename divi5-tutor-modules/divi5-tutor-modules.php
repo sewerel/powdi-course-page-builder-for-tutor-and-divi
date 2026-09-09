@@ -21,6 +21,9 @@ class Loader {
         "DTUTCourseStatus",
     ];
 
+    /**
+     * @return void
+     */
     private function __construct() {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
         add_action('divi_visual_builder_assets_before_enqueue_scripts', [$this, 'enqueue_visual_builder_scripts']);
@@ -41,11 +44,14 @@ class Loader {
      * @return void
      */
     function enqueue_styles() {
-        foreach ($this->modules as $name) {
-            if (file_exists(POWDCOTU_PATH . "divi5-tutor-modules/styles/{$name}.css")) {
-                wp_enqueue_style($name, POWDCOTU_URL . "divi5-tutor-modules/styles/{$name}.css", [], POWDCOTU_VER);
-            }
+        if (file_exists(POWDCOTU_PATH . "divi5-tutor-modules/styles/styles.css")) {
+            wp_enqueue_style('divi5-tutor-modules-styles', POWDCOTU_URL . "divi5-tutor-modules/styles/styles.css", [], POWDCOTU_VER);
         }
+        // foreach ($this->modules as $name) {
+        //     if (file_exists(POWDCOTU_PATH . "divi5-tutor-modules/styles/{$name}.css")) {
+        //         wp_enqueue_style($name, POWDCOTU_URL . "divi5-tutor-modules/styles/{$name}.css", [], POWDCOTU_VER);
+        //     }
+        // }
     }
 
     /**

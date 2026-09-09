@@ -10,6 +10,7 @@ module.exports = {
         DTUTCourseContent: './visual-builder/src/modules/DTUTCourseContent/index.jsx',
         DTUTCoursePrice: './visual-builder/src/modules/DTUTCoursePrice/index.jsx',
         DTUTCourseStatus: './visual-builder/src/modules/DTUTCourseStatus/index.jsx',
+        styles: './visual-builder/src/modules/styles.jsx',
     },
 
     // Divi Visual Builder use of scripts that is already enqueued by WordPress and available

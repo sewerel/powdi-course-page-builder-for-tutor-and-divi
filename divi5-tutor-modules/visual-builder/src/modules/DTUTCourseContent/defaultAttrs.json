@@ -5,11 +5,8 @@
                 "desktop": {
                     "value": {
                         "padding": {
-                            "top": "10px",
-                            "bottom": "10px",
-                            "left": "10px",
-                            "right": "10px",
-                            "syncVertical": "on",
+                            "left": "16px",
+                            "right": "16px",
                             "syncHorizontal": "on"
                         }
                     }

@@ -18,6 +18,8 @@ class DTUTCourseStatus implements DependencyInterface {
     /**
      * Register module.
      * `DependencyInterface` interface ensures class method name `load()` is executed for initialization.
+     *
+     * @return void
      */
     public function load() {
         // Register module.
@@ -26,6 +28,8 @@ class DTUTCourseStatus implements DependencyInterface {
 
     /**
      * Register module.
+     *
+     * @return void
      */
     public static function register_module() {
         // Path to module metadata that is shared between Frontend and Visual Builder.
@@ -41,6 +45,9 @@ class DTUTCourseStatus implements DependencyInterface {
 
     /**
      * Render module style.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_styles(array $args): void {
         $attrs       = $args['attrs'] ?? [];
@@ -95,6 +102,9 @@ class DTUTCourseStatus implements DependencyInterface {
 
     /**
      * Render module script data.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_script_data($args) {
         $elements = $args['elements'];
@@ -109,6 +119,9 @@ class DTUTCourseStatus implements DependencyInterface {
 
     /**
      * Render module classnames.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_classnames($args) {
         $classnames_instance = $args['classnamesInstance'];
@@ -123,10 +136,20 @@ class DTUTCourseStatus implements DependencyInterface {
             )
         );
     }
+    /**
+     * @return string
+     */
     public static function get_html_content() {
 
         return self::get_content(['course_id' => 0]);
     }
+
+    /**
+     * @param array $atts {
+     *     @type int $course_id
+     * }
+     * @return string
+     */
     public static function get_content($atts) {
 
         $visual_builder = isset($atts['course_id']);
@@ -152,11 +175,11 @@ class DTUTCourseStatus implements DependencyInterface {
                 <div class="divi-tutor-progress-text">
                     <span class="divi-tutor-progress-text-percent">
                         <?php echo esc_attr($course_stats['completed_percent']); ?>%&nbsp;
-                        <?php esc_html_e('Complete', 'tutor'); ?>
+                        <?php esc_html_e('Complete', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
                     </span>
                     <span class="divi-tutor-progress-text-steps">
                         <?php echo esc_html($course_stats['completed_count']); ?>
-                        <?php esc_html_e('of', 'tutor'); ?>
+                        <?php esc_html_e('of', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
                         <?php echo esc_html($course_stats['total_count']); ?>
                     </span>
                 </div>
@@ -170,6 +193,12 @@ class DTUTCourseStatus implements DependencyInterface {
     }
     /**
      * Render module HTML output.
+     *
+     * @param array  $attrs
+     * @param string $content
+     * @param object $block
+     * @param object $elements
+     * @return string
      */
     public static function render_callback($attrs, $content, $block, $elements) {
         $html_output = self::get_content([]);

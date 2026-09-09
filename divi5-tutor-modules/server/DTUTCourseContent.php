@@ -18,6 +18,8 @@ class DTUTCourseContent implements DependencyInterface {
     /**
      * Register module.
      * `DependencyInterface` interface ensures class method name `load()` is executed for initialization.
+     *
+     * @return void
      */
     public function load() {
         // Register module.
@@ -26,6 +28,8 @@ class DTUTCourseContent implements DependencyInterface {
 
     /**
      * Register module.
+     *
+     * @return void
      */
     public static function register_module() {
         // Path to module metadata that is shared between Frontend and Visual Builder.
@@ -38,6 +42,11 @@ class DTUTCourseContent implements DependencyInterface {
             ]
         );
     }
+
+    /**
+     * @param array $props
+     * @return string
+     */
     public static function declarationFunctionNoDivider($props) {
         $attrValue = $props['attrValue'] ?? '';
         if ('on' === $attrValue) {
@@ -45,8 +54,12 @@ class DTUTCourseContent implements DependencyInterface {
         }
         return '';
     }
+
     /**
      * Render module style.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_styles(array $args): void {
         $attrs       = $args['attrs'] ?? [];
@@ -215,6 +228,9 @@ class DTUTCourseContent implements DependencyInterface {
 
     /**
      * Render module script data.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_script_data($args) {
         $elements = $args['elements'];
@@ -229,6 +245,9 @@ class DTUTCourseContent implements DependencyInterface {
 
     /**
      * Render module classnames.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_classnames($args) {
         $classnames_instance = $args['classnamesInstance'];
@@ -243,6 +262,9 @@ class DTUTCourseContent implements DependencyInterface {
             )
         );
     }
+    /**
+     * @return string
+     */
     public static function get_html_content() {
         // Nonce is verified in Ajax::handle_ajax()
         // phpcs:ignore WordPress.Security.NonceVerification.Missing
@@ -253,6 +275,11 @@ class DTUTCourseContent implements DependencyInterface {
         }
         return '';
     }
+
+    /**
+     * @param int $course_id
+     * @return string
+     */
     public static function get_content($course_id = 0) {
         if (!$course_id) {
             $course_id = get_the_ID();
@@ -277,6 +304,12 @@ class DTUTCourseContent implements DependencyInterface {
     }
     /**
      * Render module HTML output.
+     *
+     * @param array  $attrs
+     * @param string $content
+     * @param object $block
+     * @param object $elements
+     * @return string
      */
     public static function render_callback($attrs, $content, $block, $elements) {
         $html_output =  self::get_content();

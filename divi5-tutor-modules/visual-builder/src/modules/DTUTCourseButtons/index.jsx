@@ -5,7 +5,7 @@
 // Module metadata that is used in both Frontend and Visual Builder.
 import metadata from './module.json';
 import defaultAttrs from './defaultAttrs.json';
-//import './style.css';
+import './style.css';
 import icon from './icon.jsx';
 import Render from './render.jsx';
 

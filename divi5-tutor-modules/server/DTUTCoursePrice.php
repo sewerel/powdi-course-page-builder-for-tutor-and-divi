@@ -18,6 +18,8 @@ class DTUTCoursePrice implements DependencyInterface {
     /**
      * Register module.
      * `DependencyInterface` interface ensures class method name `load()` is executed for initialization.
+     *
+     * @return void
      */
     public function load() {
         // Register module.
@@ -26,6 +28,8 @@ class DTUTCoursePrice implements DependencyInterface {
 
     /**
      * Register module.
+     *
+     * @return void
      */
     public static function register_module() {
         // Path to module metadata that is shared between Frontend and Visual Builder.
@@ -41,6 +45,9 @@ class DTUTCoursePrice implements DependencyInterface {
 
     /**
      * Render module style.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_styles(array $args): void {
         $attrs       = $args['attrs'] ?? [];
@@ -80,6 +87,9 @@ class DTUTCoursePrice implements DependencyInterface {
 
     /**
      * Render module script data.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_script_data($args) {
         $elements = $args['elements'];
@@ -94,6 +104,9 @@ class DTUTCoursePrice implements DependencyInterface {
 
     /**
      * Render module classnames.
+     *
+     * @param array $args
+     * @return void
      */
     public static function module_classnames($args) {
         $classnames_instance = $args['classnamesInstance'];
@@ -108,15 +121,26 @@ class DTUTCoursePrice implements DependencyInterface {
             )
         );
     }
+    /**
+     * @return string
+     */
     public static function get_html_content() {
         // Nonce is verified in Ajax::handle_ajax()
         // phpcs:disable WordPress.Security.NonceVerification.Missing
         $course_id = isset($_POST['course_id']) ? absint($_POST['course_id']) : 0;
-        $label     = isset($_POST['label']) ? sanitize_text_field($_POST['label']) : '';
+        $label     = isset($_POST['label']) ? sanitize_text_field(wp_unslash($_POST['label'])) : '';
         // phpcs:enable WordPress.Security.NonceVerification.Missing
 
         return self::get_content(['course_id' => $course_id, 'label' => $label]);
     }
+
+    /**
+     * @param array $atts {
+     *     @type int    $course_id
+     *     @type string $label
+     * }
+     * @return string
+     */
     public static function get_content($atts) {
 
         if (!empty($atts['course_id'])) {
@@ -130,10 +154,11 @@ class DTUTCoursePrice implements DependencyInterface {
 ?>
         <div class="divi-tutor-course-price">
             <?php if (null != $price) : ?>
-                <?php echo et_core_esc_previously(tutor_kses_html($price)); ?>
+                <?php echo et_core_esc_previously(tutor_kses_html($price)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $price is already sanitized by tutor_kses_html() (Tutor core's own wp_kses()-based HTML sanitizer); et_core_esc_previously() just marks it as already-escaped for Divi's own pass, it isn't a plain unescaped echo. 
+                ?>
             <?php else : ?>
                 <span class="divi-tutor-free-label">
-                    <?php echo esc_html__($atts['label']); ?>
+                    <?php echo esc_html($atts['label']); ?>
                 </span>
             <?php endif; ?>
         </div>
@@ -142,6 +167,12 @@ class DTUTCoursePrice implements DependencyInterface {
     }
     /**
      * Render module HTML output.
+     *
+     * @param array  $attrs
+     * @param string $content
+     * @param object $block
+     * @param object $elements
+     * @return string
      */
     public static function render_callback($attrs, $content, $block, $elements) {
         $label = $attrs['freeTag']['advanced']['text']['desktop']['value'] ?? 'Free';

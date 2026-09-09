@@ -1,5 +1,5 @@
 const MyAccountMemo = {};
-const data = DTUTCourseContentVisualBuilderData;
+const data = DTUTCourseButtonsVisualBuilderData;
 
 function Ajax(preview = "") {
     // Use empty string as a valid cache key

@@ -1,7 +1,9 @@
 <?php
 
 /**
- * A single course loop add to cart
+ * Template: native-Tutor add-to-cart/purchase button, included by
+ * DTUTCourseButtons::get_content() when the course is sold via Tutor's
+ * own monetization engine.
  *
  * @package Tutor\Templates
  * @subpackage WooCommerceIntegration
@@ -13,6 +15,8 @@
 if (! defined('ABSPATH')) {
     exit;
 }
+
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- this template is a near-verbatim copy of Tutor core's own loop add-to-cart template, kept unprefixed on purpose so it stays easy to diff against future Tutor core updates.
 
 use Tutor\Ecommerce\CartController;
 use Tutor\Models\CartModel;
@@ -30,14 +34,14 @@ ob_start();
 if ($is_course_in_user_cart) {
 ?>
     <a href="<?php echo esc_url($cart_page_url ? $cart_page_url : '#'); ?>" class="divi-tutor-button tutor-btn  <?php echo esc_attr($cart_page_url ? '' : 'tutor-cart-page-not-configured'); ?>">
-        <?php esc_html_e('View Cart', 'tutor'); ?>
+        <?php esc_html_e('View Cart', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
     </a>
 <?php
 } else {
 ?>
 
     <button data-quantity="1" class="divi-tutor-button tutor-btn <?php echo esc_attr($conditional_class); ?>" data-course-id="<?php the_ID(); ?>" rel="nofollow">
-        <?php esc_html_e('Add to Cart', 'tutor'); ?>
+        <?php esc_html_e('Add to Cart', 'powdi-course-page-builder-for-tutor-and-divi'); ?>
     </button>
 
 <?php
